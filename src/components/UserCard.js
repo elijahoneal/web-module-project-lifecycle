@@ -1,20 +1,29 @@
 import React from 'react'
+import styled from 'styled-components'
 
+const Card =styled.div`
+display:flex;
+flex-direction: column;
+width:25%;
+    h3{
+        font-size: 1.3rem;
+        text-align:center;
+    }
+`
 const UserCard = ({user}) => {
     console.log(user)
         return(
-            <div>
+            <Card>
+                <h3>{user.name}</h3>
                 <img src = {user.avatar_url} alt="profile pic"></img>
                 <article>
-                    <h3>Name: {user.name}</h3>
-                    <h5>Username: {user.username}</h5>
-                    <p>Location: {user.location}</p>
-                    <p>Profile: <a href={user.url}>View User</a></p>
+                    <p>{user.location}</p>
+                    <p><a href={user.url}>View Profile</a></p>
                     <p>Followers: {user.followers}</p>
                     <p>Following: {user.following}</p>
                     <p>Bio: {user.bio}</p>
                 </article>
-            </div>
+            </Card>
         )
     
 }
